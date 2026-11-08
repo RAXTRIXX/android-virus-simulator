@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06110b">
+<title>ANDROID VIRUS SIMULATOR // SAFE LAB</title>
+<style>
+:root{--bg:#030906;--panel:#07140d;--line:#17472a;--green:#36ff83;--dim:#7bb891;--red:#ff4d5e;--amber:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#0b2415 0,#030906 55%);color:var(--green);font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,#00ff5510 4px);z-index:5}
+header{padding:22px 16px 14px;border-bottom:1px solid var(--line);background:#041009eF;position:sticky;top:0;z-index:4}
+.wrap{max-width:1100px;margin:auto;padding:0 14px}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{font-size:clamp(18px,4vw,28px);letter-spacing:2px;margin:0;text-shadow:0 0 12px #36ff83aa}
+.sub{color:var(--dim);font-size:11px;letter-spacing:1px}.pill{border:1px solid var(--green);border-radius:99px;padding:4px 10px;font-size:10px}
+main{padding:18px 0 45px}.notice{border:1px solid #8a6b22;background:#211a08;color:var(--amber);padding:12px;border-radius:8px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.panel{background:linear-gradient(145deg,#091a10,#050d08);border:1px solid var(--line);border-radius:10px;padding:14px;box-shadow:0 0 18px #00ff8309}
+.hero{grid-column:span 8}.side{grid-column:span 4}.wide{grid-column:span 12}.half{grid-column:span 6}
+h2{font-size:13px;color:#b4ffc9;letter-spacing:1px;margin:0 0 12px}.big{font-size:clamp(25px,5vw,42px);font-weight:bold;text-shadow:0 0 16px #36ff83}.muted{color:var(--dim)}.small{font-size:11px;color:var(--dim)}
+.progress{height:9px;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:10px 0;background:#020603}.bar{height:100%;width:0;background:var(--green);box-shadow:0 0 12px var(--green);transition:width .25s}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{border:1px solid var(--line);padding:9px;border-radius:7px}.stat b{display:block;font-size:20px}
+button,select{font:inherit;color:var(--green);background:#07180e;border:1px solid #247344;border-radius:6px;padding:9px 11px;cursor:pointer}
+button:hover{background:#10331c;box-shadow:0 0 10px #36ff8344}button:disabled{opacity:.5;cursor:not-allowed}.danger{border-color:#9b2938;color:#ff7885}.amber{border-color:#8a6b22;color:var(--amber)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.feature{border:1px solid var(--line);border-radius:7px;padding:10px;background:#061109}.feature b{display:block;color:#c4ffd5;font-size:12px}.feature span{font-size:10px;color:var(--dim)}
+.log{height:245px;overflow:auto;background:#020603;border:1px solid #12351f;border-radius:7px;padding:10px;font-size:11px}.log div{margin:0 0 6px}.ok{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}
+footer{text-align:center;color:#527d60;font-size:10px;padding:20px}
+@media(max-width:720px){.hero,.side,.half{grid-column:span 12}.feature-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:390px){.feature-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap top"><div><h1>╔ ANDROID // VIRUS SIMULATOR ╗</h1><div class="sub">MATRIX TERMINAL · EDUCATIONAL CYBER LAB · v1.0</div></div><span class="pill">● SAFE MODE ACTIVE</span></div></header>
+<main class="wrap">
+<div class="notice"><b>⚠ LAB AMAN:</b> Semua data, ancaman, proses, dan hasil di halaman ini adalah simulasi. Website ini tidak memindai perangkat, tidak mengakses file, tidak mengirim data, dan tidak mengunci atau mengubah apa pun.</div>
+<div class="grid">
+<section class="panel hero"><h2>▸ SYSTEM STATUS</h2><div class="big" id="status">SYSTEM SECURE</div><div class="muted" id="statusText">Menunggu perintah operator...</div><div class="progress"><div class="bar" id="bar"></div></div><div class="stats"><div class="stat"><span class="small">SIMULATED THREATS</span><b id="threats">0</b></div><div class="stat"><span class="small">TASKS RUN</span><b id="tasks">0</b></div><div class="stat"><span class="small">SAFE SCORE</span><b>100%</b></div></div></section>
+<section class="panel side"><h2>▸ OPERATOR CONSOLE</h2><p class="small">Pilih eksperimen. Efek hanya visual dan lokal di halaman ini.</p><div class="actions"><button id="scan">▶ Full Scan</button><button id="clean">✚ Clean Simulation</button><button id="clear" class="amber">⌫ Clear Logs</button><button id="panic" class="danger">! Fake Alert</button></div><p class="small" style="margin-top:12px">Session: <span id="session">LOCAL-DEMO</span><br>Network: DISCONNECTED<br>File access: DISABLED</p></section>
+<section class="panel wide"><h2>▸ 15 SIMULATION MODULES</h2><div class="feature-grid" id="features"></div></section>
+<section class="panel half"><h2>▸ TERMINAL OUTPUT</h2><div class="log" id="log" aria-live="polite"><div class="ok">[BOOT] Android Virus Simulator initialized.</div><div class="ok">[SAFE] No device access. Simulation sandbox ready.</div></div></section>
+<section class="panel half"><h2>▸ EDUCATION / MODULE INFO</h2><div id="info" class="muted">Pilih salah satu modul untuk melihat penjelasan singkat dan menjalankan demo.</div><p class="small">Catatan: demo ini tidak menggunakan API Android atau izin browser.</p></section>
+</div>
+</main><footer>ANDROID VIRUS SIMULATOR · FOR SECURITY AWARENESS ONLY · NO REAL MALWARE</footer>
+<script>
+const modules=[
+["1","Fake Virus Scanner","Animasi pemindaian indikator ancaman palsu."],
+["2","Fake Infection Alert","Contoh tampilan peringatan keamanan palsu."],
+["3","File Scan Demo","Daftar nama file contoh yang dibuat di memori halaman."],
+["4","Fake Ransomware Screen","Tampilan tiruan ransomware tanpa mengunci layar atau file."],
+["5","Encryption Animation","Animasi proses enkripsi dengan teks contoh, tanpa kriptografi file."],
+["6","Decryption Demo","Simulasi pemulihan status file contoh."],
+["7","System Log Viewer","Menampilkan log sintetis untuk latihan membaca indikator."],
+["8","Permission Inspector","Checklist izin Android contoh; tidak membaca izin perangkat."],
+["9","Network Monitor","Grafik aktivitas jaringan palsu; tidak membuat koneksi."],
+["10","Phishing Awareness","Contoh tanda-tanda pesan atau halaman phishing."],
+["11","Battery Impact Demo","Animasi penggunaan baterai hipotetis."],
+["12","App Behavior Analyzer","Analisis perilaku aplikasi contoh berdasarkan skenario."],
+["13","Quarantine Simulator","Memindahkan label file contoh ke karantina virtual."],
+["14","Threat Removal","Menghapus ancaman dari daftar simulasi saja."],
+["15","Security Report","Membuat ringkasan hasil demo di terminal."]
+];
+const $=id=>document.getElementById(id);let taskCount=0,threatCount=0,selected=null;
+const log=(msg,type="ok")=>{let d=document.createElement("div");d.className=type;d.textContent=`[${new Date().toLocaleTimeString()}] ${msg}`;$("log").appendChild(d);$("log").scrollTop=$("log").scrollHeight};
+function task(name){taskCount++;$("tasks").textContent=taskCount;log(name)}
+$("features").innerHTML=modules.map(m=>`<button class="feature" data-id="${m[0]}" style="text-align:left"><b>${m[0].padStart(2,"0")} // ${m[1]}</b><span>${m[2]}</span></button>`).join("");
+$("features").addEventListener("click",e=>{let b=e.target.closest("button[data-id]");if(!b)return;let m=modules.find(x=>x[0]===b.dataset.id);selected=m;$("info").textContent=m[1]+": "+m[2]+" Klik RUN MODULE untuk menjalankan demo aman.";let run=document.createElement("button");run.textContent="▶ RUN MODULE";run.onclick=()=>runModule(m);$("info").appendChild(document.createElement("br"));$("info").appendChild(run);log("Module selected: "+m[1])});
+function progress(label){$("status").textContent="SIMULATION RUNNING";$("statusText").textContent=label;$("bar").style.width="0%";let p=0;let timer=setInterval(()=>{p+=10;$("bar").style.width=p+"%";if(p>=100){clearInterval(timer);$("status").textContent="SYSTEM SECURE";$("statusText").textContent="Demo selesai. Tidak ada perubahan pada perangkat.";log("Simulation completed safely.")}},90)}
+function runModule(m){task("RUN "+m[1]);$("info").firstChild.textContent=m[1]+": "+m[2]+" Hasil demo dicatat di terminal.";progress(m[1]);if(m[0]==="2"||m[0]==="4"){log("DISPLAY ONLY: fake warning screen rendered in this page.", "warn")}else if(m[0]==="3"){["camera.jpg","notes.txt","photos/holiday.png","downloads/demo.apk"].forEach(x=>log("SAMPLE FILE: "+x))}else if(m[0]==="5"){["sample_01.txt","sample_02.jpg","sample_03.pdf"].forEach(x=>log("Pretend encrypt: "+x+" [NO FILE MODIFIED]","warn"))}else if(m[0]==="7"){log("SYNTHETIC: app_launch -> permission_prompt -> network_attempt (blocked in demo)")}else if(m[0]==="8"){["Camera: example only","Contacts: example only","SMS: example only","Location: example only"].forEach(x=>log("PERMISSION CHECK: "+x))}else if(m[0]==="9"){log("NETWORK: 0 bytes sent · 0 bytes received · offline")}else if(m[0]==="10"){log("TIP: periksa domain, pengirim, urgensi, dan tautan sebelum login.","warn")}else if(m[0]==="11"){log("HYPOTHETICAL battery impact: low / medium / high")}else if(m[0]==="12"){log("SAMPLE BEHAVIOR: unexpected overlay request → review permissions","warn")}else if(m[0]==="13"){log("sample.apk moved to VIRTUAL QUARANTINE label only")}else if(m[0]==="14"){threatCount=0;$("threats").textContent="0";log("Virtual threat list cleared. No real files touched.")}else if(m[0]==="15"){log("REPORT: "+taskCount+" tasks · "+threatCount+" simulated alerts · 100% safe")}else if(m[0]==="1"){threatCount=2;$("threats").textContent=threatCount;log("2 hypothetical indicators found in sample dataset.","warn")}else if(m[0]==="6"){log("Sample object restored to original demo state.")}}
+$("scan").onclick=()=>{task("FULL SCAN started (sample dataset only)");progress("Memindai data contoh...");setTimeout(()=>{threatCount=2;$("threats").textContent=2;log("Scan result: 2 simulated indicators. 0 real threats detected.","warn")},950)};
+$("clean").onclick=()=>{task("CLEAN SIMULATION");threatCount=0;$("threats").textContent=0;$("status").textContent="CLEAN";$("statusText").textContent="Daftar ancaman simulasi dibersihkan."; $("bar").style.width="100%";log("Virtual environment cleaned. No device changes.")};
+$("clear").onclick=()=>{$("log").innerHTML="";log("Terminal log cleared.")};
+$("panic").onclick=()=>{task("FAKE ALERT displayed");$("status").textContent="⚠ FAKE ALERT";$("statusText").textContent="Ini hanya contoh peringatan, bukan deteksi sungguhan.";log("DEMO ALERT: Suspicious activity detected (fictional).","bad");setTimeout(()=>{$("status").textContent="SYSTEM SECURE"},1800)};
+$("session").textContent="LAB-"+Math.random().toString(36).slice(2,8).toUpperCase();
+</script></body></html>
